@@ -14,7 +14,7 @@ document.body.appendChild(renderer.domElement);
 
 // Create a sphere (globe)
 const radius = 5.0; // Radius of the sphere
-const sphereGeometry = new THREE.SphereGeometry(4.8, 64, 64);
+const sphereGeometry = new THREE.SphereGeometry(radius * 0.9, 64, 64);
 const sphereMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000,
     wireframe: false,
@@ -72,7 +72,7 @@ fetch('data/dots.ndjson')
                     color: continentColors[continent] || 0x808080,
                     side: THREE.DoubleSide,
                     transparent: true,
-                    opacity: 0.6
+                    opacity: 0.8
                 });
 
                 const processPolygon = (polygonCoords) => {

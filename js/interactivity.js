@@ -1,6 +1,9 @@
 import { camera, dots, renderer, scene, sphere } from './render.js';
 import { smoothstep } from './utils.js';
 
+const maxRotationX = THREE.MathUtils.degToRad(50);  // +50 degrees in radians
+const minRotationX = THREE.MathUtils.degToRad(-50); // -50 degrees in radians
+
 // Create a div element for displaying coordinates and country
 const infoBox = document.createElement('div');
 infoBox.style.position = 'absolute';
@@ -53,6 +56,7 @@ window.addEventListener('mousemove', (event) => {
         infoBox.style.display = 'none';
     }
 });
+
 
 // Handle double-click event for rotating the globe to a clicked dot
 window.addEventListener('dblclick', (event) => {
@@ -137,6 +141,20 @@ window.addEventListener('mousemove', (event) => {
         previousMousePosition.x = event.clientX;
         previousMousePosition.y = event.clientY;
     }
+});
+
+window.addEventListener('wheel', (event) => {
+    if (isAnimating) return; // Disable interaction during animation
+
+    // Determine the scroll direction
+    const delta = Math.sign(event.deltaY);
+
+    // Adjust rotation.x by 10 degrees (converted to radians)
+    const rotationChange = THREE.MathUtils.degToRad(-10 * delta);
+
+    // Update the sphere's rotation.x, clamped between the min and max
+    // sphere.rotation.x = THREE.MathUtils.clamp(sphere.rotation.x + rotationChange, minRotationX, maxRotationX);
+    sphere.rotation.z = sphere.rotation.z + rotationChange;
 });
 
 // Animation loop
