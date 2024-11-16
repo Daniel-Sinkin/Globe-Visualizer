@@ -13,11 +13,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Create a sphere (globe)
-const radius = 5; // Radius of the sphere
-const sphereGeometry = new THREE.SphereGeometry(radius, 64, 64);
+const radius = 5.0; // Radius of the sphere
+const sphereGeometry = new THREE.SphereGeometry(4.8, 64, 64);
 const sphereMaterial = new THREE.MeshBasicMaterial({
-    color: 0x223344,
-    wireframe: true
+    color: 0x000000,
+    wireframe: false,
+    opacity: 0.0
 });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
