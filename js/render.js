@@ -17,20 +17,17 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.rotation.x = Math.PI / 2; // Rotate 90 degrees to align poles correctly
 scene.add(sphere);
 
-// Color map for continents
 const continentColors = {
-    'Africa': 0xffd700,   // Gold
-    'Asia': 0x00ff00,     // Green
-    'Europe': 0x0000ff,   // Blue
-    'Americas': 0xff0000, // Red
-    'Oceania': 0xffa500,  // Orange
-    'Antarctica': 0xffffff // White
+    "Africa": 0xffd700,   // Gold
+    "Asia": 0x00ff00,     // Green
+    "Europe": 0x0000ff,   // Blue
+    "Americas": 0xff0000, // Red
+    "Oceania": 0xffa500,  // Orange
+    "Antarctica": 0xffffff // White
 };
 
-// Array to hold the created dots
 const dots = [];
 
-// Function to add verification markers
 function addMarker(lat, lon, color = 0xff0000) {
     const markerGeometry = new THREE.SphereGeometry(0.1, 8, 8);
     const markerMaterial = new THREE.MeshBasicMaterial({ color });
