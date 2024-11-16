@@ -71,6 +71,9 @@ def main() -> None:
                 "lat": feature["properties"]["geo_point_2d"]["lat"],
                 "country": feature["properties"]["name"],
                 "continent": feature["properties"]["continent"],
+                "color_code": feature["properties"]["color_code"],
+                "geometry_type": feature["geometry"]["type"],
+                "coordinates": feature["geometry"]["coordinates"],
             }
         )
         + "\n"
