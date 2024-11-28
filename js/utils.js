@@ -1,4 +1,3 @@
-// Utility functions
 function latLonToVector3(lat, lon, radius) {
     const phi = (90 - lat) * (Math.PI / 180);
     const theta = (lon + 180) * (Math.PI / 180);
